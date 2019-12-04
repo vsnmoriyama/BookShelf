@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ab64f98-71f3-4287-81bd-5ab112b8f939" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShelf/BookShelf/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/BookShelf/BookShelf/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShelf/BookShelf/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/BookShelf/BookShelf/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BookShelf/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/BookShelf/db.sqlite3" afterDir="false" />
-    </list>
+    <list default="true" id="0ab64f98-71f3-4287-81bd-5ab112b8f939" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,18 +70,26 @@
       <option name="project" value="LOCAL" />
       <updated>1575361717276</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="2回目">
+      <created>1575425664020</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1575425664020</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit!!" />
+    <MESSAGE value="2回目" />
+    <option name="LAST_COMMIT_MESSAGE" value="2回目" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="603" y="117" key="CommitChangelistDialog2" timestamp="1575361676697">
+    <state x="603" y="117" key="CommitChangelistDialog2" timestamp="1575425658237">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="603" y="117" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1575361676697" />
+    <state x="603" y="117" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1575425658237" />
     <state x="540" y="237" key="DBNavigator.DatasetFilterDialog" timestamp="1575425275182">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -100,14 +102,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1575425042394" />
-    <state x="751" y="398" key="Github.CreatePullRequestDialog" timestamp="1575362349969">
+    <state x="751" y="398" key="Github.CreatePullRequestDialog" timestamp="1575425709239">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="751" y="398" key="Github.CreatePullRequestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575362349969" />
+    <state x="751" y="398" key="Github.CreatePullRequestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575425709239" />
     <state x="470" y="164" key="SettingsEditor" timestamp="1575424954997">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="470" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1575424954997" />
+    <state x="552" y="255" key="Vcs.Push.Dialog.v2" timestamp="1575425683737">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="255" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1575425683737" />
     <state x="668" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1575424971292">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
