@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>BookShelf_bookList</title>
+</head>
+<body>
+<form method="post" action="">
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ISBN</th>
+          <th>画像</th>
+          <th>書名</th>
+          <th>著者名</th>
+          <th>出版社</th>
+          <th>出版日</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for book in books %}
+          <tr>
+            <td>{{ book.isbn }}</td>
+            <td><img border="0" src={{ book.picture_name }} alt="書籍画像"></td>
+            <td>{{ book.title }}</td>
+            <td>{{ book.auther }}</td>
+            <td>{{ book.publisher }}</td>
+            <td>{{ book.pubdateTochar }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </form>
+</body>
+</html>

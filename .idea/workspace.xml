@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ab64f98-71f3-4287-81bd-5ab112b8f939" name="Default Changelist" comment="" />
+    <list default="true" id="0ab64f98-71f3-4287-81bd-5ab112b8f939" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookShelf/BookShelf/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/BookShelf/BookShelf/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookShelf/bookList/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/BookShelf/bookList/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookShelf/bookList/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/BookShelf/bookList/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookShelf/bookList/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/BookShelf/bookList/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BookShelf/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/BookShelf/db.sqlite3" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -37,8 +47,18 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Developer01\Desktop\workspace\BookShelf\bookList\static\css" />
+      <recent name="C:\Users\Developer01\Desktop\workspace\BookShelf\bookList\static" />
+      <recent name="C:\Users\Developer01\Desktop\workspace\BookShelf\bookList\templates\bookList" />
+      <recent name="C:\Users\Developer01\Desktop\workspace\BookShelf\bookList\templates" />
+      <recent name="C:\Users\Developer01\Desktop\workspace\BookShelf\bookList" />
+    </key>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -77,8 +97,18 @@
       <option name="project" value="LOCAL" />
       <updated>1575425664020</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="2回目">
+      <created>1575425970833</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1575425970833</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit!!" />
@@ -86,34 +116,50 @@
     <option name="LAST_COMMIT_MESSAGE" value="2回目" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="603" y="117" key="CommitChangelistDialog2" timestamp="1575425658237">
+    <state x="719" y="329" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1575511774665">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="603" y="117" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1575425658237" />
-    <state x="540" y="237" key="DBNavigator.DatasetFilterDialog" timestamp="1575425275182">
+    <state x="719" y="329" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1575511774665" />
+    <state x="603" y="117" key="CommitChangelistDialog2" timestamp="1575425965290">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="540" y="237" key="DBNavigator.DatasetFilterDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575425275182" />
+    <state x="603" y="117" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1575425965290" />
+    <state x="860" y="461" key="DBNavigator.CreateRenameConsoleDialog" timestamp="1575437050567">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="860" y="461" key="DBNavigator.CreateRenameConsoleDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575437050567" />
+    <state x="540" y="237" key="DBNavigator.DatasetFilterDialog" timestamp="1575437828670">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="540" y="237" key="DBNavigator.DatasetFilterDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575437828670" />
+    <state x="680" y="422" width="560" height="247" key="DBNavigator.IdleConnectionDialog" timestamp="1575524372687">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="680" y="422" width="560" height="247" key="DBNavigator.IdleConnectionDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575524372687" />
     <state x="490" y="177" key="DBNavigator.ProjectSettingsDialog" timestamp="1575425045675">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="490" y="177" key="DBNavigator.ProjectSettingsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575425045675" />
+    <state x="731" y="378" key="DBNavigator.ResultSetRecordViewerDialog" timestamp="1575522053681">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="731" y="378" key="DBNavigator.ResultSetRecordViewerDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575522053681" />
     <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1575425042394">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1575425042394" />
-    <state x="751" y="398" key="Github.CreatePullRequestDialog" timestamp="1575425709239">
+    <state x="751" y="398" key="Github.CreatePullRequestDialog" timestamp="1575426015612">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="751" y="398" key="Github.CreatePullRequestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575425709239" />
+    <state x="751" y="398" key="Github.CreatePullRequestDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575426015612" />
     <state x="470" y="164" key="SettingsEditor" timestamp="1575424954997">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="470" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1575424954997" />
-    <state x="552" y="255" key="Vcs.Push.Dialog.v2" timestamp="1575425683737">
+    <state x="552" y="255" key="Vcs.Push.Dialog.v2" timestamp="1575425985762">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="255" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1575425683737" />
+    <state x="552" y="255" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1575425985762" />
     <state x="668" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1575424971292">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -126,5 +172,21 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="676" y="322" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1575362413417" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/BookShelf/bookList/views.py</url>
+          <line>6</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/BookShelf/bookList/views.py</url>
+          <line>5</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

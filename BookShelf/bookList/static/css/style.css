@@ -1,0 +1,12 @@
+img{
+   max-width: auto;
+   height: auto;
+}
+
+th,td {
+    border: solid 2px;              /* 枠線指定 */
+}
+
+table {
+    border-collapse:  collapse;     /* セルの線を重ねる */
+}
