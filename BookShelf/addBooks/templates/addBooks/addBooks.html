@@ -7,7 +7,7 @@
 <body>
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 {% if message %}<p>{{ message }}</p>{% endif %}
-<form action="{% url 'addBook'  %}" method="post">
+<form action="{% url 'addBooks:addBook'  %}" method="post">
     {% csrf_token %}
     {{ form.errors.isbn }}
     <label>{{ form.isbn.label }} {{ form.isbn }}</label><br>
@@ -23,6 +23,6 @@
     <label>{{ form.pubdate.label }} {{ form.pubdate }}</label><br>
     <input type="submit" value="add">
 </form>
-<a href="{% url 'booklist' %}"><button>list</button></a><br>
+<a href="{% url 'bookList:index' %}"><button>list</button></a><br>
 </body>
 </html>
