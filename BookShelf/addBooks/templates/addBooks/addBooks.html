@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Edit</title>
+</head>
+<body>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+{% if message %}<p>{{ message }}</p>{% endif %}
+<form action="{% url 'addBook'  %}" method="post">
+    {% csrf_token %}
+    {{ form.errors.isbn }}
+    <label>{{ form.isbn.label }} {{ form.isbn }}</label><br>
+    {{ form.errors.picture_name }}
+    <label>{{ form.picture_name.label }} {{ form.picture_name }}</label><br>
+    {{ form.errors.title }}
+    <label>{{ form.title.label }} {{ form.title }}</label><br>
+    {{ form.errors.auther }}
+    <label>{{ form.auther.label }} {{ form.auther }}</label><br>
+    {{ form.errors.publisher }}
+    <label>{{ form.publisher.label }} {{ form.publisher }}</label><br>
+    {{ form.errors.pubdate }}
+    <label>{{ form.pubdate.label }} {{ form.pubdate }}</label><br>
+    <input type="submit" value="add">
+</form>
+</body>
+</html>
