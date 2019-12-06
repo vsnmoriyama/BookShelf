@@ -1,12 +1,12 @@
-img{
-   max-width: auto;
-   height: auto;
-}
+    img{
+        max-width: auto;
+        height: auto;
+    }
 
-th,td {
-    border: solid 2px;              /* 枠線指定 */
-}
+    .kensakutable {
+        border-style: none;     /* セルの線を重ねる */
+    }
 
-table {
-    border-collapse:  collapse;     /* セルの線を重ねる */
-}
+    .ichirantable {
+        border-collapse: collapse;
+    }

@@ -21,7 +21,7 @@ def addBook(request):
             books = book.objects.get(isbn=isbnCode)
             books.picture_name = request.POST['picture_name']
             books.title = request.POST['title']
-            books.auther = request.POST['auther']
+            books.author = request.POST['author']
             books.publisher = request.POST['publisher']
             books.pubdate = request.POST['pubdate']
             message = 'update Book'
@@ -29,7 +29,7 @@ def addBook(request):
         else:
 
             books = book(isbn=request.POST['isbn'], picture_name=request.POST['picture_name'],
-                         title=request.POST['title'], auther=request.POST['auther'],
+                         title=request.POST['title'], author=request.POST['author'],
                          publisher=request.POST['publisher'], pubdate=request.POST['pubdate'])
             message = 'add Book'
 
