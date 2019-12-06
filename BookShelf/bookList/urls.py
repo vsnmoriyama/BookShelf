@@ -3,4 +3,5 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.booklist_template, name='index'),
+    url('search', views.index, name='search'),
 ]

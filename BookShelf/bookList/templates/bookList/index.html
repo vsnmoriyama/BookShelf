@@ -7,12 +7,34 @@
     <title>BookShelf_bookList</title>
 </head>
 <body>
+    <form action="{% url 'bookList:search' %}" method="get">
+      <table class = "kensakutable" border="0">
+      <thead>
+      <tr>
+      <td><label>ISBN</label></td><td><label align = "right";>: <input type="text" size="20" name="isbn"></label></td>
+      <td><label>　表紙</label></td><td><label align = "right";>: <input type="text" size="20" name="picture_name"></label></td>
+      <td><label>　書名</label></td><td><label align = "right";>: <input type="text" size="20" name="title"></label></td>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr>
+      <td><label>著者名</label></td><td><label align = "right";>: <input type="text" size="20" name="author"></label></td>
+      <td><label>　出版社名</label></td><td><label align = "right";>: <input type="text" size="20" name="publisher"></label></td>
+      <td><label>　出版日</label></td><td><label align = "right";>: <input type="text" size="20" name="pubdate"></label></td>
+      <td><input type="submit" value="検索"></td>
+      </tr>
+      </tbody>
+
+      </table>
+    </form>
+
 <form method="post" action="">
-    <table border="1">
+    <table class = "ichirantable" border="1">
       <thead>
         <tr>
           <th>ISBN</th>
-          <th>画像</th>
+          <th>表紙</th>
           <th>書名</th>
           <th>著者名</th>
           <th>出版社</th>
@@ -20,14 +42,14 @@
         </tr>
       </thead>
       <tbody>
-        {% for book in books %}
+        {% for book in book_list %}
           <tr>
             <td>{{ book.isbn }}</td>
             <td><img border="0" src={{ book.picture_name }} alt="書籍画像"></td>
             <td>{{ book.title }}</td>
-            <td>{{ book.auther }}</td>
+            <td>{{ book.author }}</td>
             <td>{{ book.publisher }}</td>
-            <td>{{ book.pubdateTochar }}</td>
+            <td>{{ book.pubdate|date:"Y/n/j" }}</td>
           </tr>
         {% endfor %}
       </tbody>

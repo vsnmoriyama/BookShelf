@@ -7,7 +7,7 @@ class AddBookForm(forms.Form):
         required=True,
     )
 
-    auther = forms.CharField(
+    author = forms.CharField(
         label='著者',
         max_length=200,
         required=True,
