@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ book.title }}</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>ISBN</td><td>{{ book.isbn }}</td>
+    </tr>
+    <tr>
+        <td>書影</td><td><img border="0" src={{ book.picture_name }} alt="書籍画像"></td>
+    </tr>
+    <tr>
+        <td>書名</td><td>{{ book.title }}</td>
+    </tr>
+    <tr>
+        <td>著者</td><td>{{ book.auther }}</td>
+    </tr>
+    <tr>
+        <td>出版社</td><td>{{ book.publisher }}</td>
+    </tr>
+    <tr>
+        <td>出版日</td><td>{{ book.publisher }}</td>
+    </tr>
+</table>
+<a href="{% url 'addBooks:changeBook' book.isbn %}"><button>編集</button></a><br>
+</body>
+</html>

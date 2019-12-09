@@ -1,14 +1,16 @@
-import sys
+import sys, threading
 
 from django.shortcuts import render, get_object_or_404
 
 sys.path.append('../')
 from bookList.models import book
 
-from . import form
+from . import form, getTestData
 
 
 def newBook(request):
+    thread_1 = threading.Thread(target=getTestData.createData())
+    thread_1.start()
     return render(request, 'addBooks/addBooks.html', {'book': book(), 'form': form.AddBookForm()})
 
 
@@ -44,9 +46,15 @@ def addBook(request):
         })
 
 
-def detailBook(request, id=None):
-    return None
+def detailBook(request, isbn=None):
+    books = get_object_or_404(book, isbn=isbn)
+    return render(request, 'addBooks/detail.html', {'book': books})
 
 
-def changeBook():
-    return None
+def changeBook(request, isbn=None):
+    books = get_object_or_404(book, isbn=isbn)
+    formData = form.AddBookForm(
+        initial={'isbn': books.isbn, 'picture_name': books.picture_name, 'title': books.title, 'auther': books.auther,
+                 'publisher': books.publisher, 'pubdate': books.pubdate})
+
+    return render(request, 'addBooks/addBooks.html', {'form': formData, })

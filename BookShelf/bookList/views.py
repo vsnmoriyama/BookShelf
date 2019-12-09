@@ -10,7 +10,7 @@ from django.views import generic
 
 def booklist_template(request):
     d = {
-        'books': book.objects.all(),
+        'book_list': book.objects.all(),
     }
     return render(request, 'bookList/index.html', d)
 
@@ -25,7 +25,7 @@ def index(request):
     print('(' + request.GET['pubdate']+ ')')
 
     d = {
-        'books': book.objects.all(),
+        'book_list': book.objects.all(),
     }
 
     booklist_isbn = book.objects.get(isbn = request.GET['isbn'])
@@ -47,7 +47,7 @@ def index(request):
         query |= item
 
     # Query the model
-    print('*' + book.objects.filter(query))
+    # print('*' + book.objects.filter(query))
 
 #------------------------------------------------------------------------
 

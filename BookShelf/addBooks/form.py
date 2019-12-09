@@ -41,6 +41,7 @@ class AddBookForm(forms.Form):
         input_formats=[
             '%Y-%m-%d',  # 2010-01-01
             '%Y/%m/%d',  # 2010/01/01
+            '%Y%m%d',    # 20100101
         ]
     )
 

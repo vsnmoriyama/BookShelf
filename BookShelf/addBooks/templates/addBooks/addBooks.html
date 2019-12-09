@@ -1,16 +1,20 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="jp">
 <head>
     <meta charset="UTF-8">
     <title>Book Edit</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{% static 'addBooks/js/getIsbn.js' %}"></script>
 </head>
 <body>
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 {% if message %}<p>{{ message }}</p>{% endif %}
-<form action="{% url 'addBooks:addBook'  %}" method="post">
+<form action="{% url 'addBooks:addBook'  %}" method="post" class="addBookForm">
     {% csrf_token %}
     {{ form.errors.isbn }}
-    <label>{{ form.isbn.label }} {{ form.isbn }}</label><br>
+    <label>{{ form.isbn.label }} {{ form.isbn }}</label><button id="getIsbn" type="button" >get ISBN</button><br>
     {{ form.errors.picture_name }}
     <label>{{ form.picture_name.label }} {{ form.picture_name }}</label><br>
     {{ form.errors.title }}
