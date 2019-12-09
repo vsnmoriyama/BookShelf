@@ -11,6 +11,7 @@ def booklist_template(request):
 
         # 'books': book.objects.all(),
         "bookSearchForm": forms.BookSearchForm()
+
     }
     return render(request, 'bookList/index.html', d)
 
@@ -80,6 +81,7 @@ def index(request):
 # 全件検索ボタン押下時表示
 def allsearch(request):
     d = {
+
 
         'books': book.objects.all(),
         "bookSearchForm": forms.BookSearchForm()
