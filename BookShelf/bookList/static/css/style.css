@@ -10,3 +10,8 @@
     .ichirantable {
         border-collapse: collapse;
     }
+
+    th {
+        text-align: left;
+        vertical-align: top;
+    }
