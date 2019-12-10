@@ -3,6 +3,7 @@ from .models import book
 from . import forms
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 # 初期表示
@@ -70,22 +71,41 @@ def index(request):
     # 1つ以上の検索フォームに値が入力されている場合
     else:
         # 値の取得
-        result = book.objects.filter(isbnQuery & titleQuery & authorQuery & publisherQuery & pubdateQuery)
+        #result = book.objects.filter(isbnQuery & titleQuery & authorQuery & publisherQuery & pubdateQuery)
+
+        series = book.objects.filter(isbnQuery & titleQuery & authorQuery & publisherQuery & pubdateQuery).order_by('id')
+        page_obj = paginate_query(request, series, 10)  # ページネーション
 
         # フォームデータ、検索結果を返却する値に代入する
-        d = {"books": result, "bookSearchForm": formData}
+        d = {"page_obj": page_obj, "bookSearchForm": formData}
 
     return render(request, 'bookList/index.html', d)
 
 
 # 全件検索ボタン押下時表示
 def allsearch(request):
+    series = book.objects.all().order_by('id')
+    page_obj = paginate_query(request, series, 10)  # ページネーション
+
     d = {
 
-
-        'books': book.objects.all(),
+        # モデルから取得したobjectsの代わりに、page_objを渡す
+        'page_obj': page_obj,
+        'site_name': "",
         "bookSearchForm": forms.BookSearchForm()
 
     }
 
     return render(request, 'bookList/index.html', d)
+
+# ページネーション用に、Pageオブジェクトを返す。
+def paginate_query(request, queryset, count):
+  paginator = Paginator(queryset, count)
+  page = request.GET.get('page')
+  try:
+    page_obj = paginator.page(page)
+  except PageNotAnInteger:
+    page_obj = paginator.page(1)
+  except EmptyPage:
+    page_obj = paginator.page(paginator.num_pages)
+  return page_obj
