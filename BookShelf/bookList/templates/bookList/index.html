@@ -27,11 +27,11 @@
     </form>
     <a href="{% url 'bookList:all' %}"><button>全件検索</button></a>
     <br>
-    <table class = "ichirantable" border="1">
+    <table class = "ichirantable" border="0" >
       <thead>
         <tr>
-          <th>ISBN</th>
           <th>表紙</th>
+          <th>ISBN</th>
           <th>書名</th>
           <th>著者名</th>
           <th>出版社</th>
@@ -39,17 +39,52 @@
         </tr>
       </thead>
       <tbody>
-        {% for book in books %}
-          <tr>
-            <td>{{ book.isbn }}</td>
-            <td><img border="0" src={{ book.picture_name }} alt="書籍画像"></td>
-            <td>{{ book.title }}</td>
-            <td>{{ book.author }}</td>
-            <td>{{ book.publisher }}</td>
-            <td>{{ book.pubdate|date:"Y/n/j" }}</td>
-          </tr>
+        {% for book in page_obj %}
+        <tr>
+          <td>
+　　　　　　{% if book.picture_name %}
+             <div align = center><img border="0" src={{ book.picture_name }} alt="書籍画像"></div>
+　　　　　　{% else %}
+          　 <div align = center><img border="0" src="/static/image/no_image.png" alt="no_image画像" width="200" height="150" ></div>
+          {% endif %}
+          </td>
+          <td valign = top>{{ book.isbn }}</td>
+          <td valign = top>{{ book.title }}</td>
+          <td valign = top>{{ book.author }}</td>
+          <td valign = top>{{ book.publisher }}</td>
+          <td valign = top>{{ book.pubdate|date:"Y/n/j" }}</td>
+        </tr>
+        <tr>
+         <td>●-----------------------------------●</td>
+         <td>--------------------●</td>
+         <td>------------------------------------------------------------------------------●</td>
+         <td>------------------------------------------------------------------------------●</td>
+         <td>------------------------------------------------------------●</td>
+         <td>-----------------●</td>
+        </tr>
         {% endfor %}
       </tbody>
     </table>
+
+    <div class="pagination" align = center>
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">[previous]</a>
+        {% endif %}
+
+        {% if page_obj %}
+        <span class="current">
+            [Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}]
+        </span>
+        {% endif %}
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">[next]</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+    </div>
+
 </body>
 </html>
