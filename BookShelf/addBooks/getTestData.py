@@ -31,12 +31,12 @@ def createData():
                "915146", "915497", "915512", "924684", "925235", "930787", "931246", "938165", "938339", "938463",
                "938508", "938706", "938733", "939029", "939111", "939115", "944098", "944154", "944236", "946483",
                "9901097"]
-    digit = 9  # 桁数
+    digit = 8  # 桁数
     while i < 100:
         index = random.randint(0, pubList.__len__()-1)
         ranDigit = digit - pubList[index].__len__()
         isbn = random.randrange(10 ** (ranDigit - 1), 10 ** ranDigit)
-        response = requests.get(uri + '9784' + pubList[index] + str(isbn))
+        response = requests.get(uri + createParity('9784' + pubList[index] + str(isbn)))
         print(response.text + str(j) + "-" + str(i))
         if not response.text == '[null]' and str(response.status_code) == "200":
             jsonData = json.loads(response.text)
@@ -46,11 +46,29 @@ def createData():
         j += 1
 
 
+def createParity(strings):
+    char_list = list(strings)
+    i = 0
+    count = 1
+    for char in char_list:
+        if count % 2 == 1:
+            i += int(char)
+        else:
+            i += int(char)*3
+        count += 1
+    i = i % 10
+    if not i == 0:
+        i = 10 - i
+    strings += str(i)
+    return strings
+
+
 def addData(summary):
+    count = summary["pubdate"].count('-')
     dateStr = re.sub("\\D", "", summary["pubdate"])
     if dateStr.__len__() == 4:
         dateStr += "01"
-    if dateStr.__len__() == 6:
+    if dateStr.__len__() == 6 and not count == 2:
         dateStr += "01"
     dateTimes = datetime.datetime.strptime(dateStr, '%Y%m%d')
 

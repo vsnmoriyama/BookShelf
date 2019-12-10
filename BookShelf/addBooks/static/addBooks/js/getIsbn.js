@@ -22,3 +22,7 @@
      }
    });
  });
+  $(document).on('click', '#getRandom', function () {
+   var hostUrl = 'http://localhost:8000/addBooks/getRandom';
+   $.get(hostUrl);
+ });

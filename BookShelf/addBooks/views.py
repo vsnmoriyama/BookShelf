@@ -1,6 +1,7 @@
 import sys, threading
 
 from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse
 
 sys.path.append('../')
 from bookList.models import book
@@ -9,8 +10,6 @@ from . import form, getTestData
 
 
 def newBook(request):
-    thread_1 = threading.Thread(target=getTestData.createData())
-    thread_1.start()
     return render(request, 'addBooks/addBooks.html', {'book': book(), 'form': form.AddBookForm()})
 
 
@@ -58,3 +57,9 @@ def changeBook(request, isbn=None):
                  'publisher': books.publisher, 'pubdate': books.pubdate})
 
     return render(request, 'addBooks/addBooks.html', {'form': formData, })
+
+
+def getRandom(request):
+    thread_1 = threading.Thread(target=getTestData.createData())
+    thread_1.start()
+    return HttpResponse()
