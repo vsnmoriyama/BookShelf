@@ -6,67 +6,78 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>BookShelf_bookList</title>
 </head>
-    <form action="{% url 'bookList:search' %}" method="get" class="bookSearchForm">
-      <table class = "kensakutable" border="0">
-      <thead>
-      <tr>
-      <td><label>{{ bookSearchForm.isbn.label }} </label></td> <td><label>： {{ bookSearchForm.isbn }}</label></td>
-      <td><label>{{ bookSearchForm.picture_name.label }} </label></td> <td><label>： {{ bookSearchForm.picture_name }}</label></td>
-      <td><label>{{ bookSearchForm.title.label }} </label></td> <td><label>： {{ bookSearchForm.title }}</label></td>
-      </thead>
+<body>
+<form action="{% url 'bookList:search' %}" method="get" class="bookSearchForm">
+    <table class="kensakutable" border="0">
+        <thead>
+        <tr>
+            <td><label>{{ bookSearchForm.isbn.label }} </label></td>
+            <td><label>： {{ bookSearchForm.isbn }}</label></td>
+            <td><label>{{ bookSearchForm.picture_name.label }} </label></td>
+            <td><label>： {{ bookSearchForm.picture_name }}</label></td>
+            <td><label>{{ bookSearchForm.title.label }} </label></td>
+            <td><label>： {{ bookSearchForm.title }}</label></td>
+        </thead>
 
-      <tbody>
-      <tr>
-      <td><label>{{ bookSearchForm.author.label }} </label></td> <td><label>： {{ bookSearchForm.author }}</label></td>
-      <td><label>{{ bookSearchForm.publisher.label }} </label></td> <td><label>： {{ bookSearchForm.publisher }}</label></td>
-      <td><label>{{ bookSearchForm.pubdate.label }} </label></td> <td><label>： {{ bookSearchForm.pubdate }}</label></td>
-      <td><input type="submit" value="検索"></td>
-      </tr>
-      </tbody>
-      </table>
-    </form>
-    <a href="{% url 'bookList:all' %}"><button>全件検索</button></a>
-    <br>
-    <table class = "ichirantable" border="0" >
-      <thead>
+        <tbody>
         <tr>
-          <th>表紙</th>
-          <th>ISBN</th>
-          <th>書名</th>
-          <th>著者名</th>
-          <th>出版社</th>
-          <th>出版日</th>
+            <td><label>{{ bookSearchForm.author.label }} </label></td>
+            <td><label>： {{ bookSearchForm.author }}</label></td>
+            <td><label>{{ bookSearchForm.publisher.label }} </label></td>
+            <td><label>： {{ bookSearchForm.publisher }}</label></td>
+            <td><label>{{ bookSearchForm.pubdate.label }} </label></td>
+            <td><label>： {{ bookSearchForm.pubdate }}</label></td>
+            <td><input type="submit" value="検索"></td>
         </tr>
-      </thead>
-      <tbody>
-        {% for book in page_obj %}
-        <tr>
-          <td>
-　　　　　　{% if book.picture_name %}
-             <div align = center><img border="0" src={{ book.picture_name }} alt="書籍画像"></div>
-　　　　　　{% else %}
-          　 <div align = center><img border="0" src="/static/image/no_image.png" alt="no_image画像" width="200" height="150" ></div>
-          {% endif %}
-          </td>
-          <td valign = top>{{ book.isbn }}</td>
-          <td valign = top>{{ book.title }}</td>
-          <td valign = top>{{ book.author }}</td>
-          <td valign = top>{{ book.publisher }}</td>
-          <td valign = top>{{ book.pubdate|date:"Y/n/j" }}</td>
-        </tr>
-        <tr>
-         <td>●-----------------------------------●</td>
-         <td>--------------------●</td>
-         <td>------------------------------------------------------------------------------●</td>
-         <td>------------------------------------------------------------------------------●</td>
-         <td>------------------------------------------------------------●</td>
-         <td>-----------------●</td>
-        </tr>
-        {% endfor %}
-      </tbody>
+        </tbody>
     </table>
-
-    <div class="pagination" align = center>
+</form>
+<a href="{% url 'bookList:all' %}">
+    <button>全件検索</button>
+</a>
+<br>
+<table class="ichirantable" border="0">
+    <thead>
+    <tr>
+        <th>表紙</th>
+        <th>ISBN</th>
+        <th>書名</th>
+        <th>著者名</th>
+        <th>出版社</th>
+        <th>出版日</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for book in page_obj %}
+    <tr>
+        <td>
+            <a href="{% url 'addBooks:detailBook' book.isbn %}">
+                {% if book.picture_name %}
+                <div align=center><img border="0" src={{ book.picture_name }} alt="書籍画像"></div>
+                {% else %}
+                <div align=center><img border="0" src="/static/image/no_image.png" alt="no_image画像" width="200"
+                                       height="150"></div>
+                {% endif %}
+            </a>
+        </td>
+        <td valign=top>{{ book.isbn }}</td>
+        <td valign=top>{{ book.title }}</td>
+        <td valign=top>{{ book.author }}</td>
+        <td valign=top>{{ book.publisher }}</td>
+        <td valign=top>{{ book.pubdate|date:"Y/n/j" }}</td>
+    </tr>
+    <tr>
+        <td>●-----------------------------------●</td>
+        <td>--------------------●</td>
+        <td>------------------------------------------------------------------------------●</td>
+        <td>------------------------------------------------------------------------------●</td>
+        <td>------------------------------------------------------------●</td>
+        <td>-----------------●</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<div class="pagination" align=center>
     <span class="step-links">
         {% if page_obj.has_previous %}
             <a href="?page=1">&laquo; first</a>
@@ -84,7 +95,9 @@
             <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
         {% endif %}
     </span>
-    </div>
-
+</div>
+<a href="{% url 'userManagement:menu' %}">
+    <button class="btn btn-success">戻る</button>
+</a>
 </body>
 </html>
