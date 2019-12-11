@@ -3,28 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ book.title }}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 <body>
-<table>
-    <tr>
-        <td>ISBN</td><td>{{ book.isbn }}</td>
-    </tr>
-    <tr>
-        <td>書影</td><td><img border="0" src={{ book.picture_name }} alt="書籍画像"></td>
-    </tr>
-    <tr>
-        <td>書名</td><td>{{ book.title }}</td>
-    </tr>
-    <tr>
-        <td>著者</td><td>{{ book.auther }}</td>
-    </tr>
-    <tr>
-        <td>出版社</td><td>{{ book.publisher }}</td>
-    </tr>
-    <tr>
-        <td>出版日</td><td>{{ book.publisher }}</td>
-    </tr>
-</table>
-<a href="{% url 'addBooks:changeBook' book.isbn %}"><button>編集</button></a><br>
+<div class="container">
+    <div class="row">
+        <table class="table table-bordered">
+            <tr>
+                <td>ISBN</td>
+                <td>{{ book.isbn }}</td>
+            </tr>
+            <tr>
+                <td>書影</td>
+                <td>
+                    {% if book.picture_name %}
+                    <div align=center><img border="0" src={{ book.picture_name }} alt="書籍画像"></div>
+                    {% else %}
+                    <div align=center><img border="0" src="/static/image/no_image.png" alt="no_image画像" width="200"
+                                           height="150"></div>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>書名</td>
+                <td>{{ book.title }}</td>
+            </tr>
+            <tr>
+                <td>著者</td>
+                <td>{{ book.author }}</td>
+            </tr>
+            <tr>
+                <td>出版社</td>
+                <td>{{ book.publisher }}</td>
+            </tr>
+            <tr>
+                <td>出版日</td>
+                <td>{{ book.publisher }}</td>
+            </tr>
+        </table>
+        <a href="{% url 'addBooks:changeBook' book.isbn %}">
+            <button class="btn btn-primary">編集</button>
+        </a><br>
+        <a href="{% url 'bookList:index' %}">
+            <button class="btn btn-success">list</button>
+        </a><br>
+        <a href="{% url 'userManagement:menu' %}">
+            <button class="btn btn-success">menu</button>
+        </a><br>
+    </div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
-import sys, threading
+import sys
+import threading
 
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 
 sys.path.append('../')
@@ -10,13 +11,22 @@ from . import form, getTestData
 
 
 def newBook(request):
+    try:
+        request.session['userId']
+    except KeyError:
+        return redirect('userManagement:top')
+
     return render(request, 'addBooks/addBooks.html', {'book': book(), 'form': form.AddBookForm()})
 
 
 def addBook(request):
+    try:
+        request.session['userId']
+    except KeyError:
+        return redirect('userManagement:top')
     # formの取得
     formData = form.AddBookForm(request.POST or None)
-    if formData.is_valid(): # 入力チェック
+    if formData.is_valid():  # 入力チェック
         isbnCode = request.POST['isbn']
         if book.objects.filter(isbn=isbnCode).exists():
             books = book.objects.get(isbn=isbnCode)
@@ -46,14 +56,22 @@ def addBook(request):
 
 
 def detailBook(request, isbn=None):
+    try:
+        request.session['userId']
+    except KeyError:
+        return redirect('userManagement:top')
     books = get_object_or_404(book, isbn=isbn)
     return render(request, 'addBooks/detail.html', {'book': books})
 
 
 def changeBook(request, isbn=None):
+    try:
+        request.session['userId']
+    except KeyError:
+        return redirect('userManagement:top')
     books = get_object_or_404(book, isbn=isbn)
     formData = form.AddBookForm(
-        initial={'isbn': books.isbn, 'picture_name': books.picture_name, 'title': books.title, 'auther': books.auther,
+        initial={'isbn': books.isbn, 'picture_name': books.picture_name, 'title': books.title, 'author': books.author,
                  'publisher': books.publisher, 'pubdate': books.pubdate})
 
     return render(request, 'addBooks/addBooks.html', {'form': formData, })
