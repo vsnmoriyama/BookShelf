@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'widget_tweaks',
     'bookList.apps.BooklistConfig',
     'addBooks.apps.AddbooksConfig',
     'userManagement.apps.UsermanagementConfig'

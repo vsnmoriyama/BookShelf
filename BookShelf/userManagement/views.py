@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
 import urllib.request as url_request
 import json
+from .models import User
 # Create your views here.
+from django.utils.datastructures import MultiValueDictKeyError
+
 clientCode = 'BookShelf'
 method = "POST"
 headers = {"Content-Type": "application/json"}
@@ -12,17 +15,19 @@ def topPage(request):
 
 
 def menu(request):
-    if request.GET['authCode']:
+    try:
         authCode = request.GET['authCode']
         accessToken = authByAuthCode(authCode)
         request.session['accessToken'] = accessToken
-    elif request.session['accessToken']:
-        accessToken = request.session['accessToken']
-    else:
-        return redirect('userManage:top')
+    except MultiValueDictKeyError:
+        try:
+            accessToken = request.session['accessToken']
+        except KeyError:
+            return redirect('userManagement:top')
 
     authByAccessToken(request, accessToken)
-    userData = {'userName': request.session['userName']}
+    message = addOrLogin(request.session['userId'], request.session['userName'])
+    userData = {'userName': request.session['userName'], 'message': message}
     return render(request, 'userManage/menu.html', userData)
 
 
@@ -49,3 +54,13 @@ def authByAccessToken(request, access_token):
         if result_obj['state'] == 'success':
             request.session['userId'] = result_obj['user_id']
             request.session['userName'] = result_obj['user_name']
+
+
+def addOrLogin(user_id, user_name):
+    user = User.objects.filter(user_id = user_id)
+    if user.exists():
+        return 'おかえりなさい'
+    else:
+        addUser = User(user_id=user_id, user_name=user_name)
+        addUser.save()
+        return 'ようこそ！'
