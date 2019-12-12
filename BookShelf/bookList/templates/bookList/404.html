@@ -1,16 +1,19 @@
 {% extends "bookList/notLoginBase.html" %}
+{% block head %}
+    <title>Error 404</title>
+{% endblock %}
 {% block body %}
 <div class="container">
     <div class="row">
         <div class="col-md-12"><br></div>
         <div class="col-md-2"></div>
-        <div class="col-md-10"><h2>ようこそBook Shelfへ</h2></div>
+        <div class="col-md-10"><h2>ページが見つかりません。</h2></div>
         <div class="col-md-12"><br></div>
     </div>
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-4">
-            <a href="http://10.33.32.40:8080/projectStudy/user/login/BookShelf">
+            <a href="{% url 'userManagement:top' %}">
                 <button class="btn btn-primary">login</button>
             </a>
         </div>

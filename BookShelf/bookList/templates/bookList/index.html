@@ -1,12 +1,11 @@
-<!DOCTYPE html>
+{% extends "bookList/base.html" %}
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>BookShelf_bookList</title>
-</head>
-<body>
+{% load widget_tweaks %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<title>BookShelf_bookList</title>
+{% endblock %}
+{% block body %}
 <form action="{% url 'bookList:search' %}" method="get" class="bookSearchForm">
     <table class="kensakutable" border="0">
         <thead>
@@ -99,5 +98,4 @@
 <a href="{% url 'userManagement:menu' %}">
     <button class="btn btn-success">戻る</button>
 </a>
-</body>
-</html>
+{% endblock %}
