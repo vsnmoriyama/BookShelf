@@ -1,20 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>menu</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-</head>
-<body>
+{% extends "bookList/base.html" %}
+{% block body %}
 <div class="container">
     <div class="row">
-        <div class="col-lg-12"><label class="text-center">{{ userName }}さん</label></div>
-        <div class="col-lg-12"><label class="text-center">{{ message }}</label></div>
-        <div class="col-lg-12"><a href="{% url 'bookList:index' %}" class="btn btn-info text-center">書籍一覧</a></div>
-        <div class="col-lg-12"><a href="{% url 'addBooks:newBook' %}" class="btn btn-info text-center">書籍登録</a></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+            <div class="mt-1"><label class="text-center">{{ userName }}さん</label></div>
+            <div class="mt-1"><label class="text-center">{{ message }}</label></div>
+            <div class="mt-1"><a href="{% url 'bookList:index' %}" class="btn btn-info text-center">書籍一覧</a></div>
+            <div class="mt-1"><a href="{% url 'addBooks:newBook' %}" class="btn btn-info text-center">書籍登録</a></div>
+        </div>
     </div>
 </div>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-</body>
-</html>
+{% endblock %}
