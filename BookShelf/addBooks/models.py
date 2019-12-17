@@ -13,10 +13,8 @@ class BookStatus(models.Model):                             # bookStatusテー�
 
 class BookReview(models.Model):                             # bookStatusテーブル
 
-    isbn = models.CharField(max_length=200)         # isbn
-    user_id = models.CharField(max_length=200)      # ユーザID
-    star = models.CharField(max_length=200)         # star
-    review = models.CharField(max_length=200)       # レビュー
-
-    class Meta:
-        unique_together = ('isbn', 'user_id')
+    isbn = models.CharField(max_length=200)             # isbn
+    user_id = models.CharField(max_length=200)          # ユーザID
+    star = models.CharField(max_length=200)             # star
+    review = models.CharField(max_length=200)           # レビュー
+    last_modified = models.DateField(auto_now=True)     # 登録日時

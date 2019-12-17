@@ -36,11 +36,30 @@
                     {{ form.errors.pubdate }}
                     <label>{{ form.pubdate.label }} {{ form.pubdate|add_class:"form-control" }}</label>
                 </div>
-                <input type="submit" value="add" class="btn btn-primary">
+                <div class='form-group'>
+                    {{ form.errors.genre }}
+                    <label>{{ form.genre.label }} {{ form.genre|add_class:"form-control" }}</label>
+                </div>
+                <div class='form-group'>
+                    {{ form.errors.text }}
+                    <label>{{ form.text.label }} {{ form.text|add_class:"form-control" }}</label>
+                </div>
+                <div class='form-group'>
+                    {{ form.errors.price }}
+                    <label>{{ form.price.label }} {{ form.price|add_class:"form-control" }}</label>
+                </div>
+                <input type="submit" value="{{ buttonName }}" class="btn btn-primary">
             </form>
         </div>
         <div class="col-md">
+            {% if isbn %}
             <div>
+                <a href="{% url 'addBooks:detailBook' isbn %}">
+                    <button class="btn btn-success">detail</button>
+                </a>
+            </div>
+            {% endif %}
+            <div class="mt-3">
                 <a href="{% url 'bookList:index' %}">
                     <button class="btn btn-success">list</button>
                 </a>
@@ -50,7 +69,7 @@
                     <button class="btn btn-success">menu</button>
                 </a>
             </div>
-            <div class="mt-3">
+            <div class="mt-3" hidden>
                 <button id="getRandom" type="button" class="btn btn-danger">getRandom</button>
             </div>
         </div>

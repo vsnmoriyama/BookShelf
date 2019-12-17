@@ -67,6 +67,12 @@ $(document).on('submit', '#BookReviewForm',function(event) {
 
         // 通信成功時の処理
         success: function(result, textStatus, xhr) {
+            $form
+                .find("input, select, textarea")
+                .not(":button, :submit, :reset, :hidden")
+                .val("")
+                .prop("checked", false)
+                .prop("selected", false);
             alert('OK');
         },
 

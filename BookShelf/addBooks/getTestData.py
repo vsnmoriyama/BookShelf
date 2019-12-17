@@ -41,9 +41,48 @@ def createData():
         if not response.text == '[null]' and str(response.status_code) == "200":
             jsonData = json.loads(response.text)
             summary = jsonData[0]["summary"]
-            addData(summary)
+
+            genreList = {0, 'onix', 'DescriptiveDetail', 'Subject', 0, 'SubjectCode'}
+            if checkJson(jsonData,genreList):
+                genre = jsonData[0]['onix']['DescriptiveDetail']['Subject'][0]['SubjectCode']
+            else:
+                genre = None
+
+            textList = {0, 'onix', 'CollateralDetail', 'TextContent', 0, 'Text'}
+            if checkJson(jsonData, textList):
+                text = jsonData[0]['onix']['CollateralDetail']['TextContent'][0]['Text']
+            else:
+                text = None
+
+            priceAmountList = {0, 'onix', 'ProductSupply', 'SupplyDetail', 'Price', 0}
+            if checkJson(jsonData, priceAmountList):
+                priceAmount = jsonData[0]['onix']['ProductSupply']['SupplyDetail']['Price'][0]
+            else:
+                priceAmount = None
+
+            addData(summary, genre, text, priceAmount)
             i += 1
         j += 1
+
+
+def checkJson(json_dict, keys):
+    key = keys.pop(0)
+    if type(key) is int:
+        if len(json_dict) > 0:
+            if len(keys) > 0:
+                return checkJson(json_dict[key], keys)
+            else:
+                return True
+        else:
+            return False
+    else:
+        if key in json_dict:
+            if len(keys) > 0:
+                return checkJson(json_dict[key], keys)
+            else:
+                return True
+        else:
+            return False
 
 
 def createParity(strings):
@@ -63,7 +102,7 @@ def createParity(strings):
     return strings
 
 
-def addData(summary):
+def addData(summary, genre, text, price_amount):
     count = summary["pubdate"].count('-')
     dateStr = re.sub("\\D", "", summary["pubdate"])
     if dateStr.__len__() == 4:
@@ -79,12 +118,15 @@ def addData(summary):
         books.author = summary["author"]
         books.publisher = summary["publisher"]
         books.pubdate = dateTimes
+        books.genre = genre
+        books.text = text
+        books.price = price_amount
         message = 'update Book'
 
     else:
         books = book(isbn=summary["isbn"], picture_name=summary["cover"],
                      title=summary["title"], author=summary["author"],
-                     publisher=summary["publisher"], pubdate=dateTimes)
+                     publisher=summary["publisher"], pubdate=dateTimes, genre=genre, text=text, price=price_amount)
         message = 'add Book'
 
     print(message)
