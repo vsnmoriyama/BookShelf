@@ -32,7 +32,7 @@ def menu(request):
 
 
 def authByAuthCode(auth_code):
-    urlAuthCode = 'http://10.33.32.40:8080/projectStudy/authorization/authCode/'
+    urlAuthCode = 'http://localhost:8080/projectStudy/authorization/authCode/'
     obj = {'client_code': clientCode, 'auth_code': auth_code}
     json_data = json.dumps(obj).encode("utf-8")
     authRequest = url_request.Request(urlAuthCode, data=json_data, method=method, headers=headers)
@@ -44,7 +44,7 @@ def authByAuthCode(auth_code):
 
 
 def authByAccessToken(request, access_token):
-    urlAccessToken = 'http://10.33.32.40:8080/projectStudy/authorization/accessToken/getData/'
+    urlAccessToken = 'http://localhost:8080/projectStudy/authorization/accessToken/getData/'
     obj = {'client_code': clientCode, 'accessToken': access_token}
     json_data = json.dumps(obj).encode("utf-8")
     accessTokenRequest = url_request.Request(urlAccessToken, data=json_data, method=method, headers=headers)

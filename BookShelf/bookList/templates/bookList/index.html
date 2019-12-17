@@ -6,37 +6,10 @@
 <title>BookShelf_bookList</title>
 {% endblock %}
 {% block body %}
-<form action="{% url 'bookList:search' %}" method="get" class="bookSearchForm">
-    <table class="kensakutable" border="0">
-        <thead>
-        <tr>
-            <td><label>{{ bookSearchForm.isbn.label }} </label></td>
-            <td><label>： {{ bookSearchForm.isbn }}</label></td>
-            <td><label>{{ bookSearchForm.picture_name.label }} </label></td>
-            <td><label>： {{ bookSearchForm.picture_name }}</label></td>
-            <td><label>{{ bookSearchForm.title.label }} </label></td>
-            <td><label>： {{ bookSearchForm.title }}</label></td>
-        </thead>
-
-        <tbody>
-        <tr>
-            <td><label>{{ bookSearchForm.author.label }} </label></td>
-            <td><label>： {{ bookSearchForm.author }}</label></td>
-            <td><label>{{ bookSearchForm.publisher.label }} </label></td>
-            <td><label>： {{ bookSearchForm.publisher }}</label></td>
-            <td><label>{{ bookSearchForm.pubdate.label }} </label></td>
-            <td><label>： {{ bookSearchForm.pubdate }}</label></td>
-            <td><input type="submit" value="検索"></td>
-        </tr>
-        </tbody>
-    </table>
-</form>
-<a href="{% url 'bookList:all' %}">
-    <button>全件検索</button>
-</a>
 <br>
-<table class="ichirantable" border="0">
+<table class="ichirantable table thead-dark" border="0">
     <thead>
+    {% if bookSearchForm %}
     <tr>
         <th>表紙</th>
         <th>ISBN</th>
@@ -45,6 +18,7 @@
         <th>出版社</th>
         <th>出版日</th>
     </tr>
+    {% endif %}
     </thead>
     <tbody>
     {% for book in page_obj %}
@@ -64,14 +38,6 @@
         <td valign=top>{{ book.author }}</td>
         <td valign=top>{{ book.publisher }}</td>
         <td valign=top>{{ book.pubdate|date:"Y/n/j" }}</td>
-    </tr>
-    <tr>
-        <td>●-----------------------------------●</td>
-        <td>--------------------●</td>
-        <td>------------------------------------------------------------------------------●</td>
-        <td>------------------------------------------------------------------------------●</td>
-        <td>------------------------------------------------------------●</td>
-        <td>-----------------●</td>
     </tr>
     {% endfor %}
     </tbody>
@@ -96,6 +62,6 @@
     </span>
 </div>
 <a href="{% url 'userManagement:menu' %}">
-    <button class="btn btn-success">戻る</button>
+    <button class="btn btn-success">Back</button>
 </a>
 {% endblock %}

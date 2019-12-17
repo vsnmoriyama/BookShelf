@@ -1,6 +1,4 @@
 from django.db import models
-from django.utils import timezone
-import datetime
 
 # Create your models here.
 class book(models.Model):                             #bookテーブル
@@ -10,4 +8,4 @@ class book(models.Model):                             #bookテーブル
     title = models.CharField(max_length=200)          #書名
     author = models.CharField(max_length=200)         #著者
     publisher = models.CharField(max_length=200)      #出版社
-    pubdate = models.DateField()      #出版日
+    pubdate = models.DateField()                      #出版日

@@ -15,3 +15,18 @@
         text-align: left;
         vertical-align: top;
     }
+
+    .searchcolor {
+        color: #FFFFFF;
+    }
+
+    input#submit_button {
+        padding: 15px 40px;
+        font-size: 1.2em;
+        /* 背景色を黒に指定 */
+        background-color: #000;
+        /* 文字色を白に指定 */
+        color: #fff;
+        /* submitボタンのを枠を非表示にする */
+        border-style: none;
+    }
