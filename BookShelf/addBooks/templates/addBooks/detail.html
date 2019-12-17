@@ -1,6 +1,7 @@
 {% extends "bookList/base.html" %}
 {% load static %}
 {% load widget_tweaks %}
+{% load lookup %}
 {% block head %}
 <title>{{ book.title }}</title>
 {% endblock %}
@@ -41,7 +42,54 @@
                     <td>出版日</td>
                     <td>{{ book.publisher }}</td>
                 </tr>
+                <tr>
+                    <td>ジャンル</td>
+                    <td>{{ book.genre }}</td>
+                </tr>
+                <tr>
+                    <td>概要</td>
+                    <td>{{ book.text }}</td>
+                </tr>
+                <tr>
+                    <td>価格</td>
+                    <td>{{ book.price }}</td>
+                </tr>
             </table>
+            <div>
+                <h3>{{ reviewCount }}件のカスタマーレビュー</h3>
+                <table class="table table-bordered">
+                    {% for review in reviews %}
+                    <tr>
+                        <td>名前</td>
+                        <td>
+                            <div>{{ users|lookup:review.user_id }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>評価</td>
+                        <td>
+                            <div>
+                                {% with ''|center:review.star as range %}{% for _ in range %}
+                                ☆
+                                {% endfor %}{% endwith %}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>日付</td>
+                        <td>
+                            <div>{{ review.last_modified }}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>レビュー</td>
+                        <td>
+                            <div>{{ review.review }}</div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
         </div>
         <div class="col-md mx-auto">
             <div>
@@ -57,7 +105,7 @@
                     </div>
                     {% csrf_token %}
                     <div class="mt-1">
-                        <button type="submit" class="btn btn-primary">送信※文言検討中</button>
+                        <button type="submit" class="btn btn-primary">status update</button>
                     </div>
                 </form>
             </div>
@@ -78,13 +126,13 @@
                     </div>
                     {% csrf_token %}
                     <div class="mt-1">
-                        <button type="submit" class="btn btn-primary">送信※文言検討中</button>
+                        <button type="submit" class="btn btn-primary">review</button>
                     </div>
                 </form>
             </div>
             <div>
                 <a href="{% url 'addBooks:changeBook' book.isbn %}">
-                    <button class="btn btn-primary">書籍情報編集</button>
+                    <button class="btn btn-primary">edit</button>
                 </a>
             </div>
             <div class="mt-3">

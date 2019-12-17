@@ -5,14 +5,29 @@
          if (data[0] == null) {
              alert("データが見つかりません");
          } else {
-             if (data[0].summary.cover == "") {
-                 $("#thumbnail").html('<img src=\"\" />');
-             } else {
-                 $("#thumbnail").html('<img src=\"' + data[0].summary.cover + '\" style=\"border:solid 1px #000000\" />');
-             }
              document.getElementsByName('title').item(0).value = data[0].summary.title;
              document.getElementsByName('publisher').item(0).value = data[0].summary.publisher;
              document.getElementsByName('author').item(0).value = data[0].summary.author;
+             function _lookup (obj, path) {
+                 const keys = path.split('.');
+                 for (let k in keys) {
+                     const key = keys[k];
+                     if (!obj.hasOwnProperty(key)) { return false; }
+                     if (keys.length > 1) {
+                         return _lookup(obj[key], keys.splice(1).join('.'));
+                     }
+                     return true;
+                 }
+             };
+             if(_lookup(data[0], 'data[0].onix.DescriptiveDetail.Subject[0].SubjectCode')){
+                 document.getElementsByName('genre').item(0).value = data[0].onix.DescriptiveDetail.Subject[0].SubjectCode;
+             }
+             if(_lookup(data[0], 'data[0].onix.CollateralDetail.TextContent[0].Text')){
+                 document.getElementsByName('text').item(0).value = data[0].onix.CollateralDetail.TextContent[0].Text;
+             }
+             if(_lookup(data[0], 'data[0].onix.ProductSupply.SupplyDetail.Price[0].PriceAmount')){
+                 document.getElementsByName('price').item(0).value = data[0].onix.ProductSupply.SupplyDetail.Price[0].PriceAmount;
+             }
              var dateStr = data[0].summary.pubdate;
              var yyyy;
              var mm;
